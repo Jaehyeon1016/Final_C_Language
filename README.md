@@ -1,3 +1,3 @@
-# stucafeInfoFo
-# CS_final
-# CS_final
+# Jaehyeon Park Final C Project
+
+In this project,
