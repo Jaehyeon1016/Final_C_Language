@@ -8,7 +8,7 @@ In this game, there is a multiple choice quiz and a score.
 
 My plan was:
 
- * print 15x15 maze
+ * print 19x19 maze
  * Blinded map system
  * move character up, down, left, right
  * Events including treasure box, quizzes, monster
