@@ -109,9 +109,10 @@ case 72: // up
 	break;
 }
 ```
+
 -------------
 
 ## Error
 
-There was compile error due to missing semicolon or bracket and logical error due to wrong position of defining variable. The problem that I couldn't solve was there is an error if I type string value instead of number when the code asks for the number input.
+The problem that I couldn't solve was there is an error if I type string value instead of number when the code asks for the number input.
 
