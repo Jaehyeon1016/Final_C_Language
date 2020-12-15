@@ -21,20 +21,19 @@ Done so far:
  * move character
  * Quizzes
  * store score
-------------------
 
 ##Code
 
 These are headers in my code. The second one allows me to use getch and kbhit later which accept the keyboard input and check it.
 
-''' c
+''' 
 #include <stdio.h>
 #include <conio.h>
 '''
 
 This part defines the type of variables(stores score and the number of quizzes solved) and array, set the size of array, and assigns the number. 
 
-''' c
+'''
 int score = 0; int star = 1;
 int map[11][11] = {
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1},
@@ -53,13 +52,13 @@ int map[11][11] = {
 
 This code is used to erase all of the printed stuffs on the window before I print the changed maze due to character's movement.
 
-''' C
+'''
 system("cls");
 '''
 
 This icons are used to make maze looks clear.
 
-''' C
+''' 
 printf("■"); // wall
 printf("  "); // road
 printf("◎"); // character
@@ -88,7 +87,7 @@ kbhit checks whether the keyboard is pushed or not. getch stores the ASCII code 
 
 After that, variable key is equal to ASCII code of pushed key.
 
-''' C
+''' c
 	if(_kbhit()) {
 		key = _getch();
 	}
@@ -108,7 +107,6 @@ case 72: // up
 	break;
 }
 '''
-------------
 
 ##Error
 
