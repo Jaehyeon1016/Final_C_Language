@@ -6,7 +6,7 @@ The workspace is Visual Studio(Windows).
 
 In this game, there is a multiple choice quiz and a score.
 
-My plan was:
+My plan was[Maze Game](https://docs.google.com/document/d/15ru-1l4GXbCBTrwk78bKu-uxLmtw2U4cIsW8N4xNYrw/edit):
 
  * print 19x19 maze
  * Blinded map system
