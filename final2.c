@@ -1,29 +1,39 @@
+
 #include <stdio.h>
 #include <conio.h>
 
 
-int score = 0, a = 3, star = 1;
-int map[11][11] = {
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1},
-	{1, 0, 0, 0, 0, 0, 1, 0, 0, 2,1},
-	{1, 0, 1, 1, 1, 0, 1, 0, 1, 1,1},
-	{1, 0, 1, 0, 0, 0, 1, 0, 2, 0,1},
-	{1, 2, 1, 0, 1, 1, 1, 1, 1, 0,1},
-	{1, 0, 1, 2, 1, 2, 1, 0, 0, 0,1},
-	{1, 0, 1, 0, 1, 0, 1, 0, 1, 0,1},
-	{1, 0, 1, 0, 0, 0, 1, 2, 1, 0,1},
-	{1, 2, 1, 1, 1, 1, 1, 0, 1, 0,1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 1, 0,0},
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1}
+
+int score = 0, a = 3, star = 1, lp=100;
+int map[19][19] = {
+	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,1,1,1,1,1,1},
+	{1, 0, 1, 0, 0, 0, 0, 0, 0, 2,0,0,0,0,0,0,0,0,1},
+	{1, 0, 1, 0, 1, 1, 1, 1, 1, 1,1,1,1,1,1,1,1,0,1},
+	{1, 0, 1, 0, 1, 0, 1, 0, 2, 0,0,0,1,0,0,0,0,0,1},
+	{1, 2, 1, 0, 1, 0, 1, 0, 1, 0,1,1,1,0,1,1,1,0,1},
+	{1, 0, 0, 2, 1, 2, 0, 0, 1, 0,0,0,1,0,0,0,1,0,1},
+	{1, 0, 1, 1, 1, 1, 1, 1, 1, 1,1,0,1,1,1,0,1,0,1},
+	{1, 0, 1, 0, 0, 0, 0, 2, 1, 0,0,0,0,0,1,0,1,0,1},
+	{1, 2, 1, 0, 1, 0, 1, 0, 1, 0,1,1,1,1,1,0,1,0,1},
+	{1, 0, 1, 0, 1, 0, 1, 0, 1, 0,0,0,1,0,0,0,1,0,1},
+	{1, 0, 1, 1, 1, 0, 1, 0, 1, 0,1,0,1,0,1,1,1,0,1},
+	{1, 0, 0, 0, 1, 0, 1, 0, 1, 0,1,0,1,0,1,0,1,0,1},
+	{1, 1, 1, 0, 1, 0, 1, 0, 1, 1,1,0,1,0,1,0,1,0,1},
+	{1, 0, 1, 0, 0, 0, 1, 0, 0, 0,1,0,1,0,1,0,1,0,1},
+	{1, 0, 1, 1, 1, 1, 1, 1, 1, 0,1,0,1,0,1,0,1,0,1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 1, 0,0,0,1,0,1,0,0,0,1},
+	{1, 0, 1, 1, 1, 1, 1, 1, 1, 1,1,0,1,0,1,1,1,1,1},
+	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,1,0,0,0,0,0,7},
+	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,1,1,1,1,1,1},
 };
 void print_maze() {
 	system("cls");
-	for (int i = 0; i < 11; i++) {
-		for (int j = 0; j < 11; j++) {
+	for (int i = 0; i < 19; i++) {
+		for (int j = 0; j < 19; j++) {
 			//printf("%d ", map[i][j]);
 			if (map[i][j] == 1) {
 				printf("■");
-			}else if(map[i][j] == 0) {
+			}else if(map[i][j] == 0 || map[i][j] == 7) {
 				printf("  ");
 			}
 			else if (map[i][j] == 9) {
@@ -36,11 +46,21 @@ void print_maze() {
 		printf("\n");
 	}
 	printf("score : %d", score);
+	printf("\nLife Point: %d", lp);
 }
 void clear() {
 	system("cls");
 	printf("Congratulation! You cleared the maze.\n");
 	printf("score : %d", score);
+	printf("\nLife Point: %d", lp);
+	a = 4;
+}
+
+void lose() {
+	system("cls");
+	printf("You died lonely in the maze...\n");
+	printf("score : %d", score);
+	printf("\nLife Point: %d", lp);
 	a = 4;
 }
 
@@ -56,12 +76,14 @@ void quiz() {
 			scanf_s("%d", &ans);
 			if (ans == 3) {
 				printf("Correct.");
-				score++;
+				score += 5;
+				lp += 10;
 				b = 5;
 				break;
 			}
 			else if (ans == 2 || ans == 1 || ans == 4) {
 				printf("Wrong.");
+				lp -= 4;
 				b = 5;
 				break;
 			}
@@ -76,12 +98,14 @@ void quiz() {
 			scanf_s("%d", &ans);
 			if (ans == 1) {
 				printf("Correct.");
-				score++;
+				score += 5;
+				lp += 10;
 				b = 5;
 				break;
 			}
 			else if (ans == 2 || ans == 3 || ans == 4) {
 				printf("Wrong.");
+				lp -= 4;
 				b = 5;
 				break;
 			}
@@ -96,12 +120,14 @@ void quiz() {
 			scanf_s("%d", &ans);
 			if (ans == 3) {
 				printf("Correct.");
-				score++;
+				score += 5;
+				lp += 10;
 				b = 5;
 				break;
 			}
 			else if (ans == 2 || ans == 4 || ans == 1) {
 				printf("Wrong.");
+				lp -= 4;
 				b = 5;
 				break;
 			}
@@ -113,6 +139,7 @@ void quiz() {
 			printf("\nNo quiz.");
 			b = 5;
 			break;
+			
 		}
 	}
 	star++;
@@ -120,11 +147,13 @@ void quiz() {
 }
 
 void special(int* a) {
+	
 	if (*a == 2) {
 		
 		quiz();
 	
 	}
+	lp--;
 	*a = 9;
 }
 
@@ -154,34 +183,35 @@ int main()
 				switch (key) {
 				case 72: // up
 					if (map[x - 1][y] == 1) break;
-					if (x == 0) { clear(); break; }
 					map[x][y] = 0;
 					special(&map[x - 1][y]);
 					x--;
+					if (lp <= 0) { lose(); break; }
 					print_maze();
 					break;
 				case 75: // left
 					if (map[x][y - 1] == 1) break;
-					if (y == 0) { clear(); break; }
 					map[x][y] = 0;
 					special(&map[x][y - 1]);
 					y--;
+					if (lp <= 0) { lose(); break; }
 					print_maze();
 					break;
 				case 77: // right
 					if (map[x][y + 1] == 1) break;
-					if (y == 9) { clear(); break; }
+					if (map[x][y + 1] == 7) { clear(); break; }
 					map[x][y] = 0;
 					special(&map[x][y + 1]);
 					y++;
+					if (lp <= 0) { lose(); break; }
 					print_maze();
 					break;
 				case 80: // down
 					if (map[x + 1][y] == 1) break;
-					if (x == 9) { clear(); break; }
 					map[x][y] = 0;
 					special(&map[x + 1][y]);
 					x++;
+					if (lp <= 0) { lose(); break; }
 					print_maze();
 					break;
 				}
@@ -191,3 +221,5 @@ int main()
 
 	}
 }
+
+
