@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <conio.h>
-#inlcude <process.h>
+#include <process.h>
 
 
 int score = 0, a = 3, star = 1, lp=100;
