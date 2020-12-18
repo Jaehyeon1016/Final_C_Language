@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <process.h>
+//hello
 
 
 int score = 0, a = 3, star = 1, lp=100;
