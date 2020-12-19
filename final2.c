@@ -3,7 +3,7 @@
 #include <conio.h>
 #include <process.h>
 //hello
-
+//https://hijuworld.tistory.com/66
 
 int score = 0, a = 3, star = 1, lp=100;
 int map[19][19] = {
