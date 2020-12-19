@@ -62,7 +62,7 @@ void quiz() {
 			scanf_s("%d", &ans);
 			if (ans == 3) {
 				printf("Correct.");
-				score += 5;
+				score += 50;
 				lp += 10;
 				b = 3;
 				Sleep(2000);
@@ -87,7 +87,7 @@ void quiz() {
 			scanf_s("%d", &ans);
 			if (ans == 1) {
 				printf("Correct.");
-				score += 5;
+				score += 50;
 				lp += 10;
 				b = 3;
 				Sleep(2000);
@@ -171,6 +171,7 @@ void quiz() {
 				if (score < 5) {
 					printf("You don't have enough score to give.\n", num3);
 					b = 3;
+					Sleep(2000);
 					break;
 				}
 				else {
