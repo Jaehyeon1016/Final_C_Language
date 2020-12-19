@@ -2,26 +2,17 @@
 
 In this project, I made a maze game using C language.
 
-The workspace is Visual Studio(Windows).
+The workspace is Visual Studio(Windows). It only works in Windows.
 
 In this game, there is a multiple choice quiz and a score.
 
 My plan was[Maze Game](https://docs.google.com/document/d/15ru-1l4GXbCBTrwk78bKu-uxLmtw2U4cIsW8N4xNYrw/edit):
 
+What I have done in this code:
  * print 19x19 maze
- * Blinded map system
  * move character up, down, left, right
- * Events including treasure box, quizzes, monster
+ * Events including treasure box, quizzes, Nymph
  * Store score and Life Point
- * Checkpoint
-
-Done so far:
-
- * print 11x11 maze
- * move character
- * Quizzes
- * store score
-
 ------------------
 
 ## Code
@@ -31,6 +22,12 @@ These are headers in my code. The second one allows me to use getch and kbhit la
 ``` c
 #include <stdio.h>
 #include <conio.h>
+#include <process.h>
+#include <time.h>
+#include <stdlib.h>
+#include <windows.h>
+
+#include "final.h"
 ```
 
 This part defines the type of variables(stores score and the number of quizzes solved) and array, set the size of array, and assigns the number. 
