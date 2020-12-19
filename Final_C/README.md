@@ -312,7 +312,7 @@ int x = 1, y = 1, z;
 ```
 This code is used to embody direction key. kbhit checks whether the keyboard is pushed or not. getch stores the ASCII code of the pushed key. After that, variable key is equal to ASCII code of pushed key. If the array value become 7, then the player clears the game. If LP become equal or less than 0, then the player loses the game.
 
-```
+``` c
 while (a < 4) {
 		if (_kbhit()) {
 			key = _getch();
